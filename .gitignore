@@ -1,2 +1,6 @@
-AddrBook.csv
-out
+*.csv
+tags
+sortapp
+run.sh
+addrbooks
+output_sortapp
