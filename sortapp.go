@@ -45,7 +45,13 @@ func main() {
 
 	app := makeSortApp()
 	app.Action = func(c *cli.Context) error {
-		addrBookPath := c.Args()[0]
+		var addrBookPath string
+		if len(c.Args()) == 1 {
+			addrBookPath = c.Args()[0]
+		} else {
+			fmt.Println("アドレス帳のパスを指定してください。")
+			os.Exit(1)
+		}
 		addrBookName := filepath.Base(addrBookPath)
 		sortedAddrBookPath := utils.GetNewFilePath(addrBookName, outputDir, 2)
 
