@@ -46,9 +46,13 @@ func incId(id string) string {
 }
 
 /**
- * fileName: インクリメントしたいベースファイルの名前(foo.bar)
- * dir     : 検索するディレクトリ
- * n       : 番号の桁数
+ * baseFileNameの末尾に任意の桁の数字を付け加えたファイル名を生成する。
+ * 番号はインクリメントされていく。
+ * args
+ * ~~~~
+ *	 baseFileName: インクリメントしたいベースファイルの名前(foo.bar)
+ *	 dir         : 検索するディレクトリ
+ *	 n           : 番号の桁数
  */
 func GetNewFilePath(baseFileName string, dir string, n int) string {
 	ex := filepath.Ext(baseFileName)
