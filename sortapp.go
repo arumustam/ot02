@@ -15,7 +15,7 @@ import (
 	"github.com/arumustam/ot02/utils"
 )
 
-const outputDir = "output_sortapp"
+const outputDirName = "output_sortapp"
 
 func makeSortApp() *cli.App {
 	app := cli.NewApp()
@@ -38,6 +38,10 @@ func makeSortApp() *cli.App {
 }
 
 func main() {
+	exe, _ := os.Executable()
+	exepath := filepath.Dir(exe)
+	outputDir := filepath.Join(exepath, outputDirName)
+
 	// outputはカレントディクトリの"sortapp_output"ディレクトリで行われる
 	if !utils.Exists(outputDir) {
 		_ = os.Mkdir(outputDir, 0777)
